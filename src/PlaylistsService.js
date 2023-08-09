@@ -22,9 +22,11 @@ class PlaylistsService {
     const resultSongsQuery = await this._pool.query(songsQuery);
 
     return {
-      id: playlist.id,
-      name: playlist.name,
-      songs: resultSongsQuery.rows,
+      playlist: {
+        id: playlist.id,
+        name: playlist.name,
+        songs: resultSongsQuery.rows,
+      },
     };
   }
 }
